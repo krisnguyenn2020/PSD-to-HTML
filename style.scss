@@ -1,0 +1,244 @@
+$primary-color: #ffc87a;
+$text-color: #1a2b5f;
+$text-gray: #cad6f0;
+html {
+  font-size: 62.5%; // 1rem = 10px
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: #1a2b5f;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+@mixin flex($align: flex-start, $justify: flex-start, $wrap: nowrap, $dir: row) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-wrap: $wrap;
+  flex-direction: $dir;
+}
+
+@mixin size($width, $height: $width) {
+        width: $width;
+        height: $height;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+a {
+  text-decoration: none;
+}
+// 1440px, 1170px
+.wrapper {
+  max-width: 1440px;
+  height: 1000px;
+  margin: 0 auto;
+}
+.container {
+  max-width: 1210px; /* 1170 + 20 + 20 */
+  margin: 0 auto;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.header {
+  padding-top: 4rem;
+  &__inner {
+    @include flex(center, space-between);
+  }
+  &__menu {
+    &-list {
+      @include flex(center);
+    }
+    &-item {
+            
+      margin-left: 5rem;
+      &:last-child {
+        margin-left: 7rem;
+      }
+    }
+    &-link {
+      font-size: 1.6rem;
+      color: $text-color;
+      //   transition: color .25s linear, border .25s linear;
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+  &__login {
+    padding: 1.5rem 2.5rem;
+    display: inline-block;
+    border: 1px solid currentColor;
+    border-radius: 2rem;
+  }
+}
+.logo {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: $text-color;
+  text-decoration: none;
+  &__text {
+    color: $primary-color;
+  }
+}
+
+.banner {
+        padding-top: 15rem;
+        padding-bottom: 15rem;
+        text-align: center;
+        max-width: 80rem;
+        margin: 0 auto;
+        &__heading {
+                font-weight: 700;
+                font-size: 6rem;
+                margin-bottom: 3rem;
+        }
+        &__desc {
+                font-size: 2rem;
+                font-weight: 300;
+                margin-bottom: 4rem;
+        }
+        &__buttons {
+                display: flex;
+                justify-content: center;
+                align-items: str;
+                .btn {
+                        margin: 0 1rem;
+                }
+        }
+}
+
+.btn {
+        cursor: pointer;
+        outline: none;
+        font-size: 1.6rem;
+        text-align: center;
+        color: $text-color;
+        padding: 1.5rem 3rem;
+        display: inline-block;
+        border:0;
+        background-color: transparent;
+        &--border {
+                border: 1px solid currentColor;
+        }
+        &--rounded {
+                border-radius: 5rem;
+        }
+        &--primary {
+                background-color: $primary-color;
+                &.has-shadow {
+                        box-shadow: 0 10px 35px -5px $primary-color;
+                }
+        }
+}
+
+.category {
+        &__list {
+                @include flex(stretch, space-between, wrap);
+                // padding-right: 2rem;
+        }
+        &__item {
+                width: calc(25% - 22.5px);
+                // width:25%;
+                // padding:2.25rem;
+                padding:2.5rem;
+                background-color: #fafafa;
+                border-radius: 2rem;
+        }
+        &__image {
+                border-radius: inherit;
+                object-fit: cover;
+                margin-bottom: 4rem;
+                @include size(100%, 23rem);
+        }
+        &__name,
+        // Understand this
+        &__detail {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+        }
+        &__name {
+                font-size: 2.5rem;
+                margin-bottom: 2.5rem;
+        }
+        &__detail {
+                font-size: 1.4rem;
+                color: $text-gray;
+                i {
+                        margin-left: 1.5rem;
+                }
+        }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Learn and practice Sass concept
+// $primary-color: yellow;
+
+// @mixin flexbox($align: flex-start, $justify: flex-start, $wrap: wrap) {
+//   display: flex;
+//   align-items: $align;
+//   justify-content: $justify;
+//   flex-wrap: $wrap;
+// }
+
+// @mixin absolute($dir: "left") {
+//   position: absolute;
+//   @if $dir == "top" {
+//     top: 50%;
+//     transform: translateX(-50%);
+//   }
+//   @if $dir == "left" {
+//     left: 50%;
+//     trasnform: translateX(-50%);
+//   }
+// }
+
+// @function sum($numbers...) {
+//   $sum: 0;
+//   @each $number in $numbers {
+//     $sum: $sum + $number;
+//   }
+//   @return $sum;
+// }
+
+// .header {
+//   height: 200px;
+//   &__logo {
+//     background-color: $primary-color;
+//     display: block;
+//     height: 100%;
+//     @include absolute("top");
+//     @include flexbox(center, flex-end, nowrap);
+//     width: sum(50px, 30px, 100px);
+
+//   }
+// }
+// // nested code
